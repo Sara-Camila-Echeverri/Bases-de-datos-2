@@ -1,0 +1,101 @@
+﻿id_comentario,contenido,fecha_comentario,usuario_id,publicacion_id
+1,"¡Qué increíble publicación! Me ha servido mucho para entender el concepto.
+Es exactamente lo que estaba buscando hoy.",2025-02-10 00:00:00,47,1
+2,"No estoy del todo de acuerdo con este enfoque. Creo que hay formas más
+eficientes de resolver este problema técnico.",2025-02-10 01:00:00,11,4
+3,"Excelente aporte, compañero. Gracias por compartir tu conocimiento con
+nosotros en este espacio académico.",2025-02-10 02:00:00,28,30
+4,"Me gustaría saber más sobre la implementación de este algoritmo. ¿Podrías
+adjuntar algún ejemplo de código adicional?",2025-02-10 03:00:00,39,24
+5,"Totalmente de acuerdo con lo que expones aquí. Es un punto clave que
+suelen olvidar en los cursos de bases de datos.",2025-02-10 04:00:00,1,15
+6,"¡Buen trabajo! Se nota el esfuerzo en la redacción y en la claridad
+de los conceptos técnicos explicados.",2025-02-10 05:00:00,1,39
+7,"Tengo una duda con respecto a la parte final del post. ¿Cómo se relaciona
+esto con la persistencia en Cassandra?",2025-02-10 06:00:00,4,22
+8,"Me parece una solución muy elegante. La voy a aplicar en mi proyecto
+final para mejorar el rendimiento del sistema.",2025-02-10 07:00:00,48,38
+9,"¿Podrías profundizar más en las ventajas de usar esta arquitectura frente
+a una relacional pura? Me interesa mucho.",2025-02-10 08:00:00,49,201
+10,"Muy claro el ejemplo, aunque me costó un poco seguir la lógica al principio.
+Después de leerlo dos veces, todo encajó.",2025-02-10 09:00:00,20,3
+11,"Gracias por tomarte el tiempo de explicar esto. Es un tema complejo y
+lo has hecho muy accesible para todos.",2025-02-10 10:00:00,10,29
+12,"Interesante perspectiva. No había considerado el uso de Redis para
+optimizar consultas tan frecuentes como esta.",2025-02-10 11:00:00,88,201
+13,"El nivel de detalle es fantástico. Ojalá todas las guías de estudio
+fueran tan precisas y directas como esta.",2025-02-10 12:00:00,89,16
+14,"¿Alguien más está teniendo problemas al ejecutar el script en Docker? A mí
+me arroja un error de puertos ocupados.",2025-02-10 13:00:00,8,19
+15,"He seguido todos los pasos pero el contenedor no levanta correctamente.
+¿Alguna sugerencia sobre qué revisar?",2025-02-10 14:00:00,5,201
+16,"Este contenido es justo lo que necesitábamos para preparar el examen
+de Bases de Datos II. ¡Mil gracias!",2025-02-10 15:00:00,37,25
+17,"La explicación sobre los nodos de Cassandra me abrió los ojos sobre
+la escalabilidad horizontal en grandes sistemas.",2025-02-10 16:00:00,30,41
+18,"Muy buena estructura. Me gusta cómo conectas los conceptos teóricos
+con la práctica en el entorno real.",2025-02-10 17:00:00,10,39
+19,"¿Qué versión de Python recomiendas para evitar conflictos con las
+librerías de PyQt6? Gracias de antemano.",2025-02-10 18:00:00,8,48
+20,"Me parece un tema fundamental. La parte de la normalización es crítica
+para evitar los problemas que mencionas.",2025-02-10 19:00:00,50,22
+21,"Estoy aplicando este modelo en mi trabajo y ha funcionado de maravilla.
+Gracias por compartir estos tips tan útiles.",2025-02-10 20:00:00,48,6
+22,"¿Crees que esta arquitectura es escalable para millones de usuarios?
+Tengo dudas sobre la latencia en MongoDB.",2025-02-10 21:00:00,37,7
+23,"Qué buen artículo. Me ayudó a organizar mejor mis ideas sobre el
+diseño de sistemas distribuidos.",2025-02-10 22:00:00,42,5
+24,"Excelente explicación sobre el uso de JSON. Es mucho más sencillo
+de manejar de lo que pensaba al inicio.",2025-02-10 23:00:00,20,29
+25,"Gracias por el ejemplo de código. Me sirvió para corregir un error
+que llevaba días intentando solucionar.",2025-02-11 00:00:00,6,20
+26,"No conocía este enfoque para el manejo de amistades. Me parece muy
+intuitivo y fácil de implementar.",2025-02-11 01:00:00,15,31
+27,"Muy valioso el contenido. ¿Habrá una segunda parte sobre el uso
+de ontologías en estos sistemas?",2025-02-11 02:00:00,18,47
+28,"Gran trabajo. La forma en que presentas la información hace que los
+temas técnicos sean mucho menos intimidantes.",2025-02-11 03:00:00,15,10
+29,"Me queda una duda respecto a la consistencia final en Cassandra.
+¿Cómo se garantiza en entornos de alta escritura?",2025-02-11 04:00:00,38,20
+30,"Muy buen resumen. Es perfecto para repasar antes de la entrega
+del proyecto final de semestre.",2025-02-11 05:00:00,23,22
+31,"¡Excelente iniciativa! Ojalá sigan publicando más material de este tipo
+para nuestra formación profesional.",2025-02-11 06:00:00,29,41
+32,"He aprendido mucho con tus publicaciones. Gracias por tu dedicación
+como profesor en el Politécnico.",2025-02-11 07:00:00,32,25
+33,"¿Podrías recomendar algún recurso adicional para profundizar en
+el modelado de datos con grafos?",2025-02-11 08:00:00,32,12
+34,"Esta técnica de ETL es muy eficiente. Me ahorró horas de trabajo
+manual con archivos CSV pesados.",2025-02-11 09:00:00,8,42
+35,"Me gusta el estilo de enseñanza. Todo queda muy claro y es muy fácil
+seguir el hilo conductor de tus explicaciones.",2025-02-11 10:00:00,49,49
+36,"¿Cómo manejarías los fallos en la conexión con Redis si el servicio
+se cae durante una consulta crítica?",2025-02-11 11:00:00,39,43
+37,"Interesante punto. Nunca había visto una comparación tan clara entre
+PostgreSQL y soluciones NoSQL.",2025-02-11 12:00:00,89,18
+38,"Gracias por los consejos de diseño. Me ayudaron a mejorar mucho
+la arquitectura de mi backend.",2025-02-11 13:00:00,38,14
+39,"Muy completo. Me gusta cómo abordas tanto la teoría como la parte
+práctica de la configuración de entornos.",2025-02-11 14:00:00,49,49
+40,"Tengo una duda técnica: ¿Es mejor normalizar en Postgres o dejarlo
+desnormalizado para mayor velocidad de lectura?",2025-02-11 15:00:00,14,32
+41,"Excelente aclaración. Ahora entiendo mejor por qué es importante
+validar los datos antes de insertarlos.",2025-02-11 16:00:00,10,28
+42,"Muy buen aporte. La integración con PyQt6 es justo lo que estaba
+buscando para mi interfaz gráfica.",2025-02-11 17:00:00,24,41
+43,"Gracias por compartir esto. Es un gran complemento para las clases
+teóricas que hemos visto hasta ahora.",2025-02-11 18:00:00,89,45
+44,"¿Qué herramientas recomiendas para monitorear el rendimiento de las
+consultas en MongoDB?",2025-02-11 19:00:00,20,6
+45,"Me parece un diseño muy robusto. Es ideal para aprender sobre
+la complejidad de las redes sociales.",2025-02-11 20:00:00,23,6
+46,"El formato de las respuestas es muy claro. Sigue así, nos ayudas
+mucho a todos los estudiantes.",2025-02-11 21:00:00,32,48
+47,"Gracias por la guía. Me despejó muchas dudas que tenía sobre
+cómo modelar las relaciones de amistad.",2025-02-11 22:00:00,15,37
+48,"¿Es posible integrar esto con otros lenguajes como Java o PHP?
+Me gustaría probarlo en otros entornos.",2025-02-11 23:00:00,10,48
+49,"Qué buen ejemplo. La parte de los procedimientos almacenados me
+resultó especialmente útil y reveladora.",2025-02-12 00:00:00,43,33
+50,"Muy buen contenido. Espero con ansias las próximas publicaciones
+para seguir aprendiendo sobre sistemas.",2025-02-12 01:00:00,6,12

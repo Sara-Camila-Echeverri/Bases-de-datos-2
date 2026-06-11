@@ -1,0 +1,9 @@
+psycopg2-binary==2.9.10
+
+pymongo==4.13.2
+
+cassandra-driver==3.29.2
+
+redis==6.2.0
+
+PyQt6==6.9.1
