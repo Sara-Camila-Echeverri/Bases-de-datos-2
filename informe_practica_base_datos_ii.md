@@ -350,22 +350,3 @@ El proceso ETL en Python permitió conectar PostgreSQL con MongoDB, Cassandra y 
 La interfaz gráfica en PyQt6 completó la solución al proporcionar una forma visual de ejecutar procesos y consultar información. Esto facilita la presentación del sistema y demuestra la conexión entre base de datos, lógica de negocio, ETL y capa de usuario.
 
 En conclusión, la arquitectura políglota desarrollada cumple con los objetivos de la práctica al integrar integridad relacional, flexibilidad documental, escalabilidad distribuida y rendimiento mediante caché. La solución demuestra que el diseño adecuado de datos depende tanto de la estructura de la información como de la forma en que será consultada.
-
----
-
-## 10. Recomendaciones y posibles mejoras futuras
-
-Como mejoras futuras se recomienda:
-
-- Parametrizar las credenciales y puertos mediante variables de entorno, evitando mantener datos de conexión directamente en el código fuente.
-- Implementar migraciones versionadas para los scripts SQL, de modo que el esquema pueda evolucionar de forma controlada.
-- Agregar pruebas automatizadas para validar restricciones, procedimiento `crear_amistad`, vistas y proceso ETL.
-- Ejecutar el ETL de forma incremental para migrar únicamente registros nuevos o modificados, en lugar de recargar colecciones completas.
-- Incorporar manejo transaccional y registro de auditoría para operaciones críticas.
-- Mejorar la interfaz usando hilos de ejecución o tareas asíncronas para evitar que la ventana se bloquee mientras se ejecuta el ETL.
-- Definir políticas de expiración para la clave `feed_noticias` en Redis, de acuerdo con la frecuencia de actualización esperada.
-- Agregar índices adicionales en columnas usadas con frecuencia en filtros o uniones, como `autor_id`, `publicacion_id`, `usuario_id` y campos de amistad.
-- Ampliar el modelo documental de MongoDB para incluir metadatos de interacción si el sistema requiere consultas más ricas sobre publicaciones.
-- Diseñar consultas específicas para Cassandra según los patrones reales de lectura, ya que en este motor el modelo debe partir de las consultas esperadas.
-
-Estas mejoras permitirían aumentar la seguridad, mantenibilidad, rendimiento y escalabilidad del sistema, manteniendo la arquitectura políglota como base conceptual de la solución.
