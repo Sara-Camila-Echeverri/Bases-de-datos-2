@@ -14,11 +14,6 @@ AS
 $$
 BEGIN
 
-```
--- ==========================================
--- Validar existencia usuario 1
--- ==========================================
-
 IF NOT EXISTS (
     SELECT 1
     FROM usuarios

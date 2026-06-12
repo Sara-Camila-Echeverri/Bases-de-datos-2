@@ -1,5 +1,13 @@
 import sys
 import psycopg2
+sys.path.append(
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+            ".."
+        )
+    )
+)
 from etl.etl_poliglota import ejecutar_etl
 
 from PyQt6.QtWidgets import (
@@ -129,11 +137,10 @@ class AdminPanel(QWidget):
 
     def ejecutar_etl(self):
 
-        self.log.append(
-            "Iniciando ETL..."
-        )
-
         try:
+            self.log.append(
+                "Iniciando ETL..."
+            )
 
             ejecutar_etl()
 
