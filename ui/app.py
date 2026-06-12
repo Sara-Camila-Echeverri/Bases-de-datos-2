@@ -1,28 +1,24 @@
+import os
 import sys
-import psycopg2
-sys.path.append(
-    os.path.abspath(
-        os.path.join(
-            os.path.dirname(__file__),
-            ".."
-        )
-    )
-)
-from etl.etl_poliglota import ejecutar_etl
 
+import psycopg2
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from PyQt6.QtWidgets import (
     QApplication,
-    QWidget,
-    QVBoxLayout,
     QHBoxLayout,
-    QPushButton,
     QLabel,
     QLineEdit,
-    QTextEdit,
     QMessageBox,
+    QPushButton,
     QTableWidget,
     QTableWidgetItem,
+    QTextEdit,
+    QVBoxLayout,
+    QWidget,
 )
+
+from etl.etl_poliglota import ejecutar_etl
 
 # Importar ETL
 # Ajusta la ruta según tu estructura
@@ -30,7 +26,6 @@ from PyQt6.QtWidgets import (
 
 
 class AdminPanel(QWidget):
-
     def __init__(self):
         super().__init__()
 
@@ -50,17 +45,11 @@ class AdminPanel(QWidget):
         # BOTÓN ETL
         # ============================
 
-        self.btn_etl = QPushButton(
-            "Ejecutar Proceso ETL Políglota"
-        )
+        self.btn_etl = QPushButton("Ejecutar Proceso ETL Políglota")
 
-        self.btn_etl.clicked.connect(
-            self.ejecutar_etl
-        )
+        self.btn_etl.clicked.connect(self.ejecutar_etl)
 
-        layout_principal.addWidget(
-            self.btn_etl
-        )
+        layout_principal.addWidget(self.btn_etl)
 
         # ============================
         # LOG
@@ -69,9 +58,7 @@ class AdminPanel(QWidget):
         self.log = QTextEdit()
         self.log.setReadOnly(True)
 
-        layout_principal.addWidget(
-            self.log
-        )
+        layout_principal.addWidget(self.log)
 
         # ============================
         # FORM AMISTAD
@@ -80,30 +67,20 @@ class AdminPanel(QWidget):
         form_layout = QHBoxLayout()
 
         self.id1 = QLineEdit()
-        self.id1.setPlaceholderText(
-            "ID Usuario 1"
-        )
+        self.id1.setPlaceholderText("ID Usuario 1")
 
         self.id2 = QLineEdit()
-        self.id2.setPlaceholderText(
-            "ID Usuario 2"
-        )
+        self.id2.setPlaceholderText("ID Usuario 2")
 
-        btn_amistad = QPushButton(
-            "Crear Amistad"
-        )
+        btn_amistad = QPushButton("Crear Amistad")
 
-        btn_amistad.clicked.connect(
-            self.crear_amistad
-        )
+        btn_amistad.clicked.connect(self.crear_amistad)
 
         form_layout.addWidget(self.id1)
         form_layout.addWidget(self.id2)
         form_layout.addWidget(btn_amistad)
 
-        layout_principal.addLayout(
-            form_layout
-        )
+        layout_principal.addLayout(form_layout)
 
         # ============================
         # TABLA FEED
@@ -111,25 +88,15 @@ class AdminPanel(QWidget):
 
         self.tabla = QTableWidget()
 
-        layout_principal.addWidget(
-            self.tabla
-        )
+        layout_principal.addWidget(self.tabla)
 
-        btn_cargar_feed = QPushButton(
-            "Cargar Feed"
-        )
+        btn_cargar_feed = QPushButton("Cargar Feed")
 
-        btn_cargar_feed.clicked.connect(
-            self.cargar_feed
-        )
+        btn_cargar_feed.clicked.connect(self.cargar_feed)
 
-        layout_principal.addWidget(
-            btn_cargar_feed
-        )
+        layout_principal.addWidget(btn_cargar_feed)
 
-        self.setLayout(
-            layout_principal
-        )
+        self.setLayout(layout_principal)
 
     # ==================================
     # ETL
@@ -138,22 +105,15 @@ class AdminPanel(QWidget):
     def ejecutar_etl(self):
 
         try:
-            self.log.append(
-                "Iniciando ETL..."
-            )
+            self.log.append("Iniciando ETL...")
 
             ejecutar_etl()
 
-            self.log.append(
-                "ETL ejecutado correctamente."
-            )
+            self.log.append("ETL ejecutado correctamente.")
 
         except Exception as e:
+            self.log.append(f"ERROR ETL: {e}")
 
-            self.log.append(
-                f"ERROR ETL: {e}"
-            )
-            
     # ==================================
     # CREAR AMISTAD
     # ==================================
@@ -161,50 +121,36 @@ class AdminPanel(QWidget):
     def crear_amistad(self):
 
         try:
+            usuario1 = int(self.id1.text())
 
-            usuario1 = int(
-                self.id1.text()
-            )
-
-            usuario2 = int(
-                self.id2.text()
-            )
+            usuario2 = int(self.id2.text())
 
             conn = psycopg2.connect(
                 host="localhost",
                 port=5432,
                 database="red_social_db",
                 user="postgres",
-                password="postgres"
+                password="postgres",
             )
 
             cursor = conn.cursor()
 
-            cursor.execute(
-                "SELECT crear_amistad(%s,%s)",
-                (usuario1, usuario2)
-            )
+            cursor.execute("SELECT crear_amistad(%s,%s)", (usuario1, usuario2))
 
             resultado = cursor.fetchone()
 
+            if resultado is None:
+                raise RuntimeError("El procedimiento no devolvió ningún resultado.")
+
             conn.commit()
 
-            QMessageBox.information(
-                self,
-                "Éxito",
-                resultado[0]
-            )
+            QMessageBox.information(self, "Éxito", resultado[0])
 
             cursor.close()
             conn.close()
 
         except Exception as e:
-
-            QMessageBox.critical(
-                self,
-                "Error",
-                str(e)
-            )
+            QMessageBox.critical(self, "Error", str(e))
 
     # ==================================
     # FEED
@@ -213,13 +159,12 @@ class AdminPanel(QWidget):
     def cargar_feed(self):
 
         try:
-
             conn = psycopg2.connect(
                 host="localhost",
                 port=5432,
                 database="red_social_db",
                 user="postgres",
-                password="postgres"
+                password="postgres",
             )
 
             cursor = conn.cursor()
@@ -232,48 +177,29 @@ class AdminPanel(QWidget):
 
             datos = cursor.fetchall()
 
-            columnas = [desc[0]
-                         for desc
-                         in cursor.description]
+            if cursor.description is None:
+                raise RuntimeError("La consulta del feed no devolvió columnas.")
 
-            self.tabla.setRowCount(
-                len(datos)
-            )
+            columnas = [desc[0] for desc in cursor.description]
 
-            self.tabla.setColumnCount(
-                len(columnas)
-            )
+            self.tabla.setRowCount(len(datos))
 
-            self.tabla.setHorizontalHeaderLabels(
-                columnas
-            )
+            self.tabla.setColumnCount(len(columnas))
+
+            self.tabla.setHorizontalHeaderLabels(columnas)
 
             for fila_idx, fila in enumerate(datos):
-
                 for col_idx, valor in enumerate(fila):
-
-                    self.tabla.setItem(
-                        fila_idx,
-                        col_idx,
-                        QTableWidgetItem(
-                            str(valor)
-                        )
-                    )
+                    self.tabla.setItem(fila_idx, col_idx, QTableWidgetItem(str(valor)))
 
             cursor.close()
             conn.close()
 
         except Exception as e:
-
-            QMessageBox.critical(
-                self,
-                "Error",
-                str(e)
-            )
+            QMessageBox.critical(self, "Error", str(e))
 
 
 if __name__ == "__main__":
-
     app = QApplication(sys.argv)
 
     ventana = AdminPanel()
